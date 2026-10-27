@@ -1,0 +1,210 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* shadcn semantic tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  /* Расширенные токены */
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent-from: var(--accent-from);
+  --color-accent-to: var(--accent-to);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ============================================================
+   A · GRAPHITE PREMIUM — по умолчанию
+   ============================================================ */
+:root {
+  /* Фон и текст */
+  --background: #121418;            /* не чёрный, тёмно-серый с холодным подтоном */
+  --foreground: #E2E8F0;
+  --text-primary: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --text-tertiary: #64748B;
+
+  /* Поверхности */
+  --surface-1: #1A1D24;            /* карточки */
+  --surface-2: #232730;            /* input, hover */
+  --surface-3: #2D3240;            /* active, elevated */
+  --card: #1A1D24;
+  --card-foreground: #E2E8F0;
+  --popover: #232730;
+  --popover-foreground: #E2E8F0;
+
+  /* Акцент */
+  --accent-from: #A78BFA;
+  --accent-to:   #22D3EE;
+
+  --primary: #A78BFA;
+  --primary-foreground: #121418;
+
+  --secondary: #232730;
+  --secondary-foreground: #E2E8F0;
+
+  --muted: #232730;
+  --muted-foreground: #94A3B8;
+
+  --accent: #2D3240;
+  --accent-foreground: #E2E8F0;
+
+  --destructive: #F87171;
+  --destructive-foreground: #121418;
+
+  --success: #34D399;
+  --warning: #FBBF24;
+  --info:    #60A5FA;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --input:  rgba(255, 255, 255, 0.12);
+  --ring:   #A78BFA;
+
+  --sidebar: #0F1115;
+  --sidebar-foreground: #E2E8F0;
+
+  --chart-1: #A78BFA;
+  --chart-2: #22D3EE;
+  --chart-3: #34D399;
+  --chart-4: #FBBF24;
+  --chart-5: #F472B6;
+
+  --radius: 0.75rem;
+}
+
+/* Светлая — резерв */
+.light {
+  --background: #FAFAF9;
+  --foreground: #0A0A0A;
+  --text-primary: #0A0A0A;
+  --text-secondary: #71717A;
+  --text-tertiary: #A1A1AA;
+
+  --surface-1: #FFFFFF;
+  --surface-2: #F4F4F5;
+  --surface-3: #E4E4E7;
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A0A0A;
+
+  --accent-from: #7C3AED;
+  --accent-to:   #DB2777;
+
+  --primary: #7C3AED;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #F4F4F5;
+  --secondary-foreground: #0A0A0A;
+
+  --muted: #F4F4F5;
+  --muted-foreground: #71717A;
+
+  --accent: #F4F4F5;
+  --accent-foreground: #0A0A0A;
+
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+
+  --success: #16A34A;
+  --warning: #EA580C;
+  --info:    #2563EB;
+
+  --border: rgba(0, 0, 0, 0.06);
+  --input:  rgba(0, 0, 0, 0.10);
+  --ring:   #7C3AED;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0A0A0A;
+
+  --chart-1: #7C3AED;
+  --chart-2: #0891B2;
+  --chart-3: #16A34A;
+  --chart-4: #EA580C;
+  --chart-5: #DB2777;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  body {
+    background-color: var(--background);
+    background-image:
+      radial-gradient(ellipse 60% 50% at 15% -10%, rgba(167, 139, 250, 0.06), transparent),
+      radial-gradient(ellipse 50% 40% at 85% 110%, rgba(34, 211, 238, 0.04), transparent);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  [data-slot="card"],
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+@utility bg-gradient-accent {
+  background-image: linear-gradient(135deg, var(--accent-from) 0%, var(--accent-to) 100%);
+}
+
+@utility text-gradient-accent {
+  background-image: linear-gradient(135deg, var(--accent-from) 0%, var(--accent-to) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility inset-highlight {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+}
